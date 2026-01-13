@@ -1,0 +1,21 @@
+{
+    "project_name":       "bootloader",
+    "project_path":       "J:/Basic_HMI_Code/IDF/Espressif/frameworks/esp-idf-v4.4.1/components/bootloader/subproject",
+    "build_dir":          "J:/Basic_HMI_Code/IDF_Code/lesson_5_DHT_screen_2.4_2.8_base/build/bootloader",
+    "config_file":        "J:/Basic_HMI_Code/IDF_Code/lesson_5_DHT_screen_2.4_2.8_base/sdkconfig",
+    "config_defaults":    "",
+    "app_elf":            "bootloader.elf",
+    "app_bin":            "bootloader.bin",
+    "git_revision":       "v4.4.1",
+    "target":             "esp32",
+    "rev":                "0",
+    "phy_data_partition": "",
+    "monitor_baud" :      "115200",
+    "monitor_toolprefix": "xtensa-esp32-elf-",
+    "config_environment" : {
+        "COMPONENT_KCONFIGS" : "J:/Basic_HMI_Code/IDF/Espressif/frameworks/esp-idf-v4.4.1/components/efuse/Kconfig;J:/Basic_HMI_Code/IDF/Espressif/frameworks/esp-idf-v4.4.1/components/esp32/Kconfig;J:/Basic_HMI_Code/IDF/Espressif/frameworks/esp-idf-v4.4.1/components/esp_common/Kconfig;J:/Basic_HMI_Code/IDF/Espressif/frameworks/esp-idf-v4.4.1/components/esp_hw_support/Kconfig;J:/Basic_HMI_Code/IDF/Espressif/frameworks/esp-idf-v4.4.1/components/esp_system/Kconfig;J:/Basic_HMI_Code/IDF/Espressif/frameworks/esp-idf-v4.4.1/components/freertos/Kconfig;J:/Basic_HMI_Code/IDF/Espressif/frameworks/esp-idf-v4.4.1/components/hal/Kconfig;J:/Basic_HMI_Code/IDF/Espressif/frameworks/esp-idf-v4.4.1/components/log/Kconfig;J:/Basic_HMI_Code/IDF/Espressif/frameworks/esp-idf-v4.4.1/components/newlib/Kconfig;J:/Basic_HMI_Code/IDF/Espressif/frameworks/esp-idf-v4.4.1/components/spi_flash/Kconfig",
+        "COMPONENT_KCONFIGS_PROJBUILD" : "J:/Basic_HMI_Code/IDF/Espressif/frameworks/esp-idf-v4.4.1/components/bootloader/Kconfig.projbuild;J:/Basic_HMI_Code/IDF/Espressif/frameworks/esp-idf-v4.4.1/components/esp_rom/Kconfig.projbuild;J:/Basic_HMI_Code/IDF/Espressif/frameworks/esp-idf-v4.4.1/components/esptool_py/Kconfig.projbuild;J:/Basic_HMI_Code/IDF/Espressif/frameworks/esp-idf-v4.4.1/components/partition_table/Kconfig.projbuild"
+    },
+    "build_components" : [ "bootloader", "bootloader_support", "efuse", "esp32", "esp_common", "esp_hw_support", "esp_rom", "esp_system", "esptool_py", "freertos", "hal", "log", "main", "micro-ecc", "newlib", "partition_table", "soc", "spi_flash", "xtensa", "" ],
+    "build_component_paths" : [ "J:/Basic_HMI_Code/IDF/Espressif/frameworks/esp-idf-v4.4.1/components/bootloader", "J:/Basic_HMI_Code/IDF/Espressif/frameworks/esp-idf-v4.4.1/components/bootloader_support", "J:/Basic_HMI_Code/IDF/Espressif/frameworks/esp-idf-v4.4.1/components/efuse", "J:/Basic_HMI_Code/IDF/Espressif/frameworks/esp-idf-v4.4.1/components/esp32", "J:/Basic_HMI_Code/IDF/Espressif/frameworks/esp-idf-v4.4.1/components/esp_common", "J:/Basic_HMI_Code/IDF/Espressif/frameworks/esp-idf-v4.4.1/components/esp_hw_support", "J:/Basic_HMI_Code/IDF/Espressif/frameworks/esp-idf-v4.4.1/components/esp_rom", "J:/Basic_HMI_Code/IDF/Espressif/frameworks/esp-idf-v4.4.1/components/esp_system", "J:/Basic_HMI_Code/IDF/Espressif/frameworks/esp-idf-v4.4.1/components/esptool_py", "J:/Basic_HMI_Code/IDF/Espressif/frameworks/esp-idf-v4.4.1/components/freertos", "J:/Basic_HMI_Code/IDF/Espressif/frameworks/esp-idf-v4.4.1/components/hal", "J:/Basic_HMI_Code/IDF/Espressif/frameworks/esp-idf-v4.4.1/components/log", "J:/Basic_HMI_Code/IDF/Espressif/frameworks/esp-idf-v4.4.1/components/bootloader/subproject/main", "J:/Basic_HMI_Code/IDF/Espressif/frameworks/esp-idf-v4.4.1/components/bootloader/subproject/components/micro-ecc", "J:/Basic_HMI_Code/IDF/Espressif/frameworks/esp-idf-v4.4.1/components/newlib", "J:/Basic_HMI_Code/IDF/Espressif/frameworks/esp-idf-v4.4.1/components/partition_table", "J:/Basic_HMI_Code/IDF/Espressif/frameworks/esp-idf-v4.4.1/components/soc", "J:/Basic_HMI_Code/IDF/Espressif/frameworks/esp-idf-v4.4.1/components/spi_flash", "J:/Basic_HMI_Code/IDF/Espressif/frameworks/esp-idf-v4.4.1/components/xtensa", "" ]
+}

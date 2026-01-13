@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "J:/Basic_HMI_Code/IDF_Code/lesson_5_DHT_screen_2.4_2.8_base/build/CMakeFiles/bootloader"
+		},
+		{
+			"file" : "J:/Basic_HMI_Code/IDF_Code/lesson_5_DHT_screen_2.4_2.8_base/build/CMakeFiles/bootloader.rule"
+		},
+		{
+			"file" : "J:/Basic_HMI_Code/IDF_Code/lesson_5_DHT_screen_2.4_2.8_base/build/CMakeFiles/bootloader-complete.rule"
+		},
+		{
+			"file" : "J:/Basic_HMI_Code/IDF_Code/lesson_5_DHT_screen_2.4_2.8_base/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule"
+		},
+		{
+			"file" : "J:/Basic_HMI_Code/IDF_Code/lesson_5_DHT_screen_2.4_2.8_base/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule"
+		},
+		{
+			"file" : "J:/Basic_HMI_Code/IDF_Code/lesson_5_DHT_screen_2.4_2.8_base/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule"
+		},
+		{
+			"file" : "J:/Basic_HMI_Code/IDF_Code/lesson_5_DHT_screen_2.4_2.8_base/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule"
+		},
+		{
+			"file" : "J:/Basic_HMI_Code/IDF_Code/lesson_5_DHT_screen_2.4_2.8_base/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule"
+		},
+		{
+			"file" : "J:/Basic_HMI_Code/IDF_Code/lesson_5_DHT_screen_2.4_2.8_base/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule"
+		},
+		{
+			"file" : "J:/Basic_HMI_Code/IDF_Code/lesson_5_DHT_screen_2.4_2.8_base/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"bootloader"
+		],
+		"name" : "bootloader"
+	}
+}
