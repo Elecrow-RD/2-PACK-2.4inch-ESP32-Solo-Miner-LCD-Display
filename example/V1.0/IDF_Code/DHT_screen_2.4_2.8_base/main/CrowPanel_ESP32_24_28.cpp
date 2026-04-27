@@ -49,8 +49,8 @@ uint16_t touchX, touchY;
 void my_touchpad_read(lv_indev_t *indev, lv_indev_data_t *data) {
   if (lcd.getTouch(&touchX, &touchY)) {
     data->state = LV_INDEV_STATE_PRESSED;
-    // data->point.x = SCREEN_WIDTH - touchX;  // 2.4 inch screen use this line instead
-    data->point.x = touchX;              // 2.8 inch screen use this line instead
+    data->point.x = SCREEN_WIDTH - touchX;  // 2.4 inch screen use this line instead
+    // data->point.x = touchX;              // 2.8 inch screen use this line instead
     data->point.y = touchY;
     Serial.printf("Touch X:%d  Y:%d\n", data->point.x, data->point.y);
   } else {

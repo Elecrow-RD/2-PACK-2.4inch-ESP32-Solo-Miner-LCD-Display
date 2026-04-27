@@ -1,0 +1,11 @@
+{
+  "idf.adapterTargetName": "esp32",
+  "idf.portWin": "COM9",
+  "idf.openOcdConfigs": [
+    "board/esp32-wrover-kit-3.3v.cfg"
+  ],
+  "idf.customExtraVars": {
+    "IDF_TARGET": "esp32"
+  },
+  "idf.flashType": "UART"
+}
