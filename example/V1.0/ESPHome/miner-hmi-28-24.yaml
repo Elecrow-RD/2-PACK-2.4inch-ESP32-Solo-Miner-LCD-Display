@@ -1,0 +1,211 @@
+esphome:
+  name: miner-hmi-28-24
+  platformio_options:
+    build_flags: "-DBOARD_HAS_PSRAM"
+    board_build.esp-idf.memory_type: qio_opi
+    board_build.flash_mode: dio
+  friendly_name: Miner_HMI_28_24
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+psram:
+  mode: quad
+  speed: 80MHz
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "NhX8Y85nTXYzPhZxwJvaoy2QAFiB9HA5Sx0zdF6S2X0="
+
+ota:
+  - platform: esphome
+    password: "1b8faabb2d06b5a3e4ef662d63bad0ce"
+
+wifi:
+  ssid: "elecrow888"
+  password: "elecrow2014"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Miner-Hmi-28-24 Fallback Hotspot"
+    password: "ORPScpNxG5Lp"
+
+captive_portal:
+
+  
+# ================= backlight =================
+output:
+  - platform: ledc
+    pin: GPIO27
+    id: backlight_pwm
+
+light:
+  - platform: monochromatic
+    output: backlight_pwm
+    name: "Display Backlight"
+    id: back_light
+    restore_mode: ALWAYS_ON
+
+# ================= Image resources =================
+image:
+  - file: "light.png"
+    id: on_light
+    resize: 50x50
+    type: RGB565
+
+  - file: "no_light.png"
+    id: no_light
+    resize: 50x50
+    type: RGB565
+
+  - file: "small_temp.png"
+    id: small_temp
+    resize: 50x75
+    type: RGB565
+
+  - file: "small_hum.png"
+    id: small_hum
+    resize: 50x75
+    type: RGB565
+
+  - file: "small_logo.png"
+    id: small_logo
+    resize: 200x200
+    type: RGB565
+    transparency: chroma_key
+
+
+# ================= I2C =================
+i2c:
+  sda: 22
+  scl: 21
+  scan: true
+
+# ================= Sensors =================
+sensor:
+  - platform: aht10
+    variant: AHT20
+    temperature:
+      id: room_temp
+      name: "Room Temperature"
+      accuracy_decimals: 1
+    humidity:
+      id: room_hum
+      name: "Room Humidity"
+      accuracy_decimals: 1
+    update_interval: 1s
+
+# ================= LED switch =================
+switch:
+  - platform: gpio
+    pin: 25
+    id: led_output
+    name: "LED Control"
+
+# ================= SPI =================
+spi:
+  clk_pin: 14
+  mosi_pin: 13
+  miso_pin: 33
+
+# ================= display screen =================
+display:
+  - platform: ili9xxx
+    id: main_display
+    model: ILI9341
+    dc_pin:
+      number: 2
+      ignore_strapping_warning: true
+    cs_pin:
+      number: 15
+      ignore_strapping_warning: true
+    rotation: 90
+    invert_colors: false
+    color_order: BGR
+    update_interval: 0s
+
+# ================= LVGL =================
+lvgl:
+  id: lvgl_display
+  color_depth: 16
+  bg_color: 0xFFFFFF
+  text_font: montserrat_14
+
+  widgets:
+    # LOGO
+    - image:
+        id: lvgl_logo
+        src: small_logo
+        x: 25
+        y: 10
+
+    # Temperature icon
+    - image:
+        src: small_temp
+        x: 40
+        y: 125
+
+    # Humidity icon
+    - image:
+        src: small_hum
+        x: 140
+        y: 125
+        
+    # The LED status icon at the lower right corner
+    - image:
+        id: lvgl_light_icon
+        src: no_light
+        x: 240
+        y: 140
+
+    # Temperature value (only showing the numerical value)
+    - label:
+        id: label_temp
+        x: 45
+        y: 205
+        text: "--.-°C"
+
+    # Humidity value (only showing the number)
+    - label:
+        id: label_hum
+        x: 145
+        y: 205
+        text: "--.-%"
+
+    - label:
+        id: light_label
+        x: 250
+        y: 205
+        text: "OFF"
+
+
+
+# ================= Automatically refresh =================
+interval:
+  - interval: 1s
+    then:
+      - lambda: |-
+          char temp_str[16];
+          char hum_str[16];
+
+          // Update the display of temperature and humidity
+          snprintf(temp_str, sizeof(temp_str), "%.1f°C", id(room_temp).state);
+          snprintf(hum_str, sizeof(hum_str), "%.1f%%", id(room_hum).state);
+          lv_label_set_text(id(label_temp), temp_str);
+          lv_label_set_text(id(label_hum), hum_str);
+
+          // According to the LED status switching icon
+          if (id(led_output).state) {
+            lv_img_set_src(id(lvgl_light_icon), id(on_light));
+            lv_label_set_text(id(light_label), "ON");
+          } else {
+            lv_img_set_src(id(lvgl_light_icon), id(no_light));
+            lv_label_set_text(id(light_label), "OFF");
+          }
+    
